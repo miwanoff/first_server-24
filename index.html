@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Seasons</h1>
-    <a href="1">Winter</a><br>
-    <a href="2">Summer</a><br>
-    <a href="3">Index 1</a>
-</body>
+  </head>
+  <body>
+    <h1>Socket</h1>
+    <input type="text" name="user" id="user" />
+    <button class="btn">Roll</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const btn = document.querySelector(".btn");
+      const user = document.querySelector("#user");
+      btn.addEventListener("click", function () {
+        socket.emit("player", user.value);
+      });
+    </script>
+  </body>
 </html>
